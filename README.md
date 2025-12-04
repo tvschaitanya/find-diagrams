@@ -1,43 +1,85 @@
-# Astro Starter Kit: Minimal
+# Diagrams Icons Search
 
-```sh
-bun create astro@latest -- --template minimal
+A searchable web interface for all architecture icons from the [diagrams library](https://diagrams.mingrammer.com/).
+
+## Why This Project?
+
+When building architecture diagrams with the diagrams library, finding the right icon is tedious. You need to know the exact name, module, and import statement. This tool lets you search, browse, and copy icon imports instantly instead of digging through documentation.
+
+## Features
+
+- **Search icons** by name or import path
+- **Browse all** icons available in the diagrams library
+- **Copy import statements** with one click
+- **Dark mode** toggle for comfortable viewing
+- **Keyboard shortcuts** for faster navigation
+- **Responsive design** that works on mobile and desktop
+
+## Keyboard Shortcuts
+
+- `Cmd+K` (Mac) or `Ctrl+K` (Windows/Linux) - Focus search box
+- `Esc` twice - Clear search and unfocus
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.7+
+- Node.js 16+
+- Diagrams library (`pip install diagrams`)
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+
+   ```bash
+   pip install diagrams
+   npm install
+   ```
+
+3. Generate the icons database:
+
+   ```bash
+   python gen_icons.py
+   ```
+
+   This creates `icons.json` with all available icons.
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open your browser to `http://localhost:3000`
+
+## How It Works
+
+- **gen_icons.py** - Extracts all icon classes from the diagrams library and saves them to `icons.json`
+- **SearchClient.tsx** - React component that displays and filters icons
+- **SearchClient.css** - Styling with light/dark theme support
+- **index.astro** - Astro page that loads the search interface
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── SearchClient.tsx    # Main search component
+│   └── SearchClient.css    # Styling
+├── pages/
+│   └── index.astro         # Home page
+└── gen_icons.py            # Icon extraction script
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Built With
 
-## 🚀 Project Structure
+- [Astro](https://astro.build/) - Web framework
+- [React](https://react.dev/) - UI component library
+- [Lucide React](https://lucide.dev/) - Icons
+- [Diagrams](https://diagrams.mingrammer.com/) - Architecture icon library
 
-Inside of your Astro project, you'll see the following folders and files:
+## License
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+This project uses icons from the diagrams library. Check the diagrams documentation for license details.
